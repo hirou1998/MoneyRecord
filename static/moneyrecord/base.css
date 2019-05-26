@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+}
+.message{
+    background: #98e698;
+    width: 90%;
+    margin: 1vw auto;
+    margin-top: 5vw;
+    padding: 3vw 0;
+    border-radius: 1vw;
+    text-align: center;
+}
+.wrapper{
+    width: 96%;
+    padding: 0 2%;
+}
+.list-table{
+    margin: 100%;
+    margin: 3vw auto;
+}
+.list-flex{
+    display: flex;
+    align-items: center;
+    border-top: solid 1px;
+    border-right: solid 1px;
+    border-left: solid 1px;
+    position: relative;
+}
+.list-head div{
+    background:#364f66!important;
+    color: white;
+}
+.list-flex:last-child::after{
+    content:"";
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    background: #000;
+}
+.edit{
+    background: #009688!important;
+    font-weight: bold;
+    color: white;
+}
+.list-flex div{
+    width: 18%;
+    text-align: center;
+    padding: 1vw;
+    flex: 1;
+    min-height: 7.3vw;
+    min-width: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vw;
+}
+.list-flex div.borrow{
+    background: #ffcfcf!important;
+}
+.list-flex div:first-child{
+    flex: 2!important;
+    min-width: 23vw;
+}
+.list-flex div:nth-child(even){
+    background: #cff0ff;
+}
+.edit-row{
+    display: flex;
+    align-items: center;
+    border-top: solid 1px;
+    border-right: solid 1px;
+    border-left: solid 1px;
+}
+.edit-row div{
+    flex: 1!important;
+}
+.edit-row div p{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 1vw auto;
+    height: 10vw;
+}
+.edit-row a{
+    text-decoration:none;
+}
+.update{
+    background: #008eff;
+}
+.delete{
+    background: #e72222;
+}
+.total-amount{
+    justify-content:left!important;
+}
+.total-amount-money{
+    flex:2!important;
+    background: #fff5be!important;
+}
+.owing{
+    color: red;
+}
+
+/*form css*/
+.form-group{
+    width: 90%;
+    margin: 1vw auto;
+}
+.control-label{
+    font-size: 5vw;
+    font-weight: bold;
+}
+.form-control{
+    border-radius: 2vw;
+    padding: 2vw;
+    width: 70%;
+    display: block;
+    margin: 1vw 0;
+    margin-left: 8vw;
+    border: solid 2px #03A9F4;
+}
+.help-block{
+    margin: 0;
+    text-align: right;
+    width: 85%;
+}
+.btn{
+    background: #19527f;
+    color: white;
+    border: none;
+    padding: 4vw 2vw;
+    border-radius: 1vw;
+    width: 60vw;
+    margin: 10vw auto;
+    display: block;
+}

@@ -1,0 +1,11 @@
+{% extends "moneyrecord/base.html" %}
+{% block content %}
+
+<p>Are you OK with deleting this data?</p>
+
+<form method="post">
+    <button class="btn">DELETE</button>
+    {% csrf_token %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "moneyrecord/base.html" %}
+{% load custom_filters %}
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <p class="message">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+<div class="wrapper">
+<!--    <ul class="breadcrumb">-->
+<!--        <li class="breadcrumb-item">-->
+<!--            <a href="{% url "moneyrecord:moneyrecord_list" %}">TOP</a>-->
+<!--        </li>-->
+<!--        <li class="breadcrumb-itme">-->
+<!--            All records-->
+<!--        </li>-->
+<!--    </ul>-->
+    <a href="{% url 'moneyrecord:moneyrecord_create' %}">
+        <div>REGISTER</div>
+    </a>
+    <div>
+        {% for human in human_list %}
+            <p>{{ human }}</p>
+            <div class="list-table">
+                <div class="list-flex list-head">
+                    <div>Date</div>
+                    <div>Status</div>
+                    <div>Memo</div>
+                    <div>Amount</div>
+                    <div>Deadline</div>
+                    <div>EDIT</div>
+                </div>
+            {% for item in all_list %}
+                {% if item.human_name.human_name == human.human_name %}
+                <div class="list-flex">
+                    <div>{{ item.date }}</div>
+                    <div class="{% if item.state == 'Borrow' %}borrow{% endif %}">{{ item.state }}</div>
+                    <div>{{ item.memo }}</div>
+                    <div class="{% if item.state == 'Borrow' %}borrow{% endif %}">{{ item.money }} (JPY)</div>
+                    <div>{{ item.deadline }}</div>
+                    <div class="edit">EDIT</div>
+                </div>
+                <div class="edit-row">
+                    <div><a href="{% url 'moneyrecord:moneyrecord_update' item.pk %}"><p class="update">UPDATE</p></a></div>
+                    <div><a href="{% url 'moneyrecord:moneyrecord_delete' item.pk %}"><p class="delete">DELETE</p></a></div>
+                </div>
+                {% endif %}
+            {% endfor %}
+                <div class="list-flex">
+                    <div class="total-amount">Total amount</div>
+                    <div class="total-amount-money {% if total_amount|get_at_index:forloop.counter0 < 0 %}owing{% endif %}">{{ total_amount|get_at_index:forloop.counter0 }} (JPY)</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    $(function(){
+    $(".edit-row").hide();
+    $(".edit").on("click", function(){
+        $(this).toggleClass("clicked");
+        if($(this).hasClass("clicked")){
+            $(this).parent("div").next("div").show();
+        }
+        else{
+            $(this).parent("div").next("div").hide();
+        }
+    });
+});
+</script>
+{% endblock %}
